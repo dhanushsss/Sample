@@ -1,5 +1,8 @@
-package com.dhanushs.customer;
+package com.dhanushs.customer.controller;
 
+import com.dhanushs.customer.registration.CustomerRegistration;
+import com.dhanushs.customer.service.CustomerService;
+import com.dhanushs.customer.model.Customer;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.dhanushs.customer;
+package com.dhanushs.customer.model;
 
-import org.springframework.stereotype.Repository;
+import com.dhanushs.customer.model.Customer;
 
 import java.util.List;
 import java.util.Optional;

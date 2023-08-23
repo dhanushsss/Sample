@@ -1,4 +1,4 @@
-package com.dhanushs.customer;
+package com.dhanushs.customer.registration;
 
 public record CustomerRegistration(
         String name ,

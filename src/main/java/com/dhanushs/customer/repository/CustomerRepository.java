@@ -1,12 +1,10 @@
-package com.dhanushs.customer;
+package com.dhanushs.customer.repository;
 
+import com.dhanushs.customer.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 
 //@Repository
 public interface CustomerRepository extends JpaRepository<Customer,Integer> {
-
 
     boolean existsCustomerByEmail(String email);
     boolean existsPersonWithId(Integer customerId);

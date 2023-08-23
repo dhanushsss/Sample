@@ -1,7 +1,7 @@
 package com.dhanushs;
 
-import com.dhanushs.customer.Customer;
-import com.dhanushs.customer.CustomerRepository;
+import com.dhanushs.customer.model.Customer;
+import com.dhanushs.customer.repository.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

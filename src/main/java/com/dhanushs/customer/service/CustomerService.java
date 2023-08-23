@@ -1,5 +1,8 @@
-package com.dhanushs.customer;
+package com.dhanushs.customer.service;
 
+import com.dhanushs.customer.model.CustomerDao;
+import com.dhanushs.customer.registration.CustomerRegistration;
+import com.dhanushs.customer.model.Customer;
 import com.dhanushs.exception.DuplicateResourceException;
 import com.dhanushs.exception.RequestValidation;
 import com.dhanushs.exception.ResourceNotFoundException;
@@ -46,7 +49,7 @@ public class CustomerService {
     public void deleteCustomerById(Integer customerId ){
 
         if(!customerDao.existsPersonWithId(customerId)){
-            throw new ResourceNotFoundException("Customer id [%s] is not found".formatted(customerId));
+            throw new ResourceNotFundException("Customer id [%s] is not found".formatted(customerId));
         }
         customerDao.deleteCustomerById(customerId);
     }

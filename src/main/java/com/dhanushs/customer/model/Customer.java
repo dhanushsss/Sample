@@ -1,4 +1,4 @@
-package com.dhanushs.customer;
+package com.dhanushs.customer.model;
 
 import jakarta.persistence.*;
 

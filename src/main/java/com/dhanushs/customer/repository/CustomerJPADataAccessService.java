@@ -1,11 +1,13 @@
-package com.dhanushs.customer;
+package com.dhanushs.customer.repository;
 
+import com.dhanushs.customer.model.CustomerDao;
+import com.dhanushs.customer.model.Customer;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
 @Repository("jpa")
-public class CustomerJPADataAccessService implements CustomerDao{
+public class CustomerJPADataAccessService implements CustomerDao {
 
     private final CustomerRepository customerRepository;
 
