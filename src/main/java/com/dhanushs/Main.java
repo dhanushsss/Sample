@@ -1,70 +1,63 @@
 package com.dhanushs;
 
+import com.dhanushs.customer.model.Customer;
+import com.dhanushs.customer.repository.CustomerRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
+
 @SpringBootApplication
-@RestController
+
 public class Main {
+
     public static void main(String[] args) {
+
+        /*
+        CustomerService customerService
+                = new CustomerService(new CustomerDataAccessService());
+
+        CustomerController customerController
+                = new CustomerController(customerService);
+
+         */
         SpringApplication.run(Main.class,args);
+
     }
 
-    @GetMapping("/welcome")
-    public EmployeeData welcome(@RequestParam(value = "name", required = false) String name){
-        String getMessage = name == null || name.isEmpty() ? "Hello" : "BelloOo " + name ;
-        EmployeeData employeeData = new EmployeeData(
-                getMessage ,
-                new Employee("08-06-2001",
-                        "Chennai" ,
-                        "sdhanushit@gmail.com"
-                ),
-                List.of("Java","ReactJS","Spring Framework")
-        );
-        return employeeData ;
+    @Bean
+    CommandLineRunner runner(CustomerRepository  customerRepository){
+
+        return args -> {
+
+            Customer dhanush = new Customer(
+
+                    "dhanush",
+                    "sdhanushit@gmail.com",
+                    22
+            );
+
+            Customer mohan = new Customer(
+
+                    "mohan",
+                    "mohanraj.sc@gmail.com",
+                    22
+            );
+            Customer ellora = new Customer(
+
+                    "ellora",
+                    "ellora.suji@gmail.com",
+                    23
+            );
+
+            List<Customer> customers = List.of(dhanush,ellora,mohan);
+            customerRepository.saveAll(customers);
+
+        };
+
     }
-
-    record EmployeeData (String name , Employee employee , List<String> skills){}
-
-    record Employee (String dob , String Location , String email){}
-
-
-//    class EmployeeData {
-//
-//        private final String fName ;
-//
-//
-//        EmployeeData(String fName) {
-//            this.fName = fName;
-//        }
-//
-//        public String getfName() {
-//            return fName;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return "EmployeeData{" +
-//                    "fName='" + fName + '\'' +
-//                    '}';
-//        }
-//
-//        @Override
-//        public boolean equals(Object o) {
-//            if (this == o) return true;
-//            if (!(o instanceof EmployeeData that)) return false;
-//            return Objects.equals(getfName(), that.getfName());
-//        }
-//
-//        @Override
-//        public int hashCode() {
-//            return Objects.hash(getfName());
-//        }
-//    }
 
 }
